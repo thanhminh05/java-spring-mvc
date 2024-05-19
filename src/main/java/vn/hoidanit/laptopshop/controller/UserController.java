@@ -2,13 +2,13 @@ package vn.hoidanit.laptopshop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -29,23 +29,16 @@ public class UserController {
         return "hello";
     }
     
+    @RequestMapping(value = "/admin/user", method = RequestMethod.GET)
+    public String getUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        model.addAttribute("hoidanit", "hoidanit value");
+        return "admin/user/create";
+    }
     
-    
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
+    public String createUserPage(Model model, @ModelAttribute("newUser") User newUser) {
+        System.out.println("data: " + newUser);
+        return "hello";
+    }
 }
-
-// REST
-// @RestController
-// public class UserController {
-//     private UserService userService;
-    
-//     public UserController(UserService userService) {
-//         this.userService = userService;
-//     }
-
-//     @GetMapping("/")
-//     public String getHomePage() {
-//         return this.userService.handleHello();
-//     }
-    
-    
-// }

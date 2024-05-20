@@ -13,14 +13,9 @@
 </head>
 
 <body>
-    Hello form JSP
     <h1>
-        ${eric}
+        ${data}
     </h1>
-    <h2>
-        ${hoidanit}
-    </h2>
-    <button>Submit</button>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -23,10 +25,9 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-        String test = this.userService.handleHello();
-        model.addAttribute("eric", test);
-        model.addAttribute("hoidanit", "hoidanit value");
-        return "hello";
+        List<User> data = this.userService.getAllUsers();
+        model.addAttribute("data", data);
+        return "home";
     }
     
     @RequestMapping(value = "/admin/user", method = RequestMethod.GET)

@@ -47,6 +47,6 @@ public class UserController {
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String handleCreateUser(Model model, @ModelAttribute("newUser") User newData) {
         this.userService.handleSaveUser(newData);
-        return "hello";
+        return "redirect:/admin/user";
     }
 }

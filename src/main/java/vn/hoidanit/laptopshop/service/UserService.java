@@ -20,7 +20,7 @@ public class UserService {
     }
 
     public List<User> getAllUsersByEmail(String email) {
-        return this.userRepository.findAll();
+        return this.userRepository.findByEmail(email);
     }
 
     public User handleSaveUser(User user) {

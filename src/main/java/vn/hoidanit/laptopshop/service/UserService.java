@@ -30,16 +30,17 @@ public class UserService {
         return this.userRepository.save(user);
     }
 
-    public User handleUpdateUser(User user) {
+    public void handleUpdateUser(User user) {
         User data = this.getUserById(user.getId());
-        data.setEmail(user.getEmail());
-        data.setPhone(user.getPhone());
-        data.setFullName(user.getFullName());
-        data.setAddress(user.getAddress());
-        return this.userRepository.save(data);
+        if (data != null) {
+            data.setPhone(user.getPhone());
+            data.setFullName(user.getFullName());
+            data.setAddress(user.getAddress());
+        }
     }
 
     public void handleDeleteUser(Long id) {
+        System.out.println(id);
         this.userRepository.deleteById(id);
     }
 }

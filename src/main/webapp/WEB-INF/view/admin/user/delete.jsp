@@ -24,10 +24,10 @@
                                 Are you sure to delete this user ?
                             </div>
 
-                            <form:form method="post" action="/admin/user/delete/{id}" modelAttribute="newData">
+                            <form:form method="post" action="/admin/user/delete" modelAttribute="newData">
                                 <div class="d-none mb-3">
                                     <label class="form-label">ID:</label>
-                                    <form:input type="text" class="form-control" path="id" />
+                                    <form:input type="text" class="form-control" path="id" value="${id}" />
                                 </div>
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form:form>

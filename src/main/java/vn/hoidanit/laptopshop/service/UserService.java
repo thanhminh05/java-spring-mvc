@@ -40,7 +40,6 @@ public class UserService {
     }
 
     public void handleDeleteUser(Long id) {
-        System.out.println(id);
         this.userRepository.deleteById(id);
     }
 }

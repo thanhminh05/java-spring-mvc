@@ -76,14 +76,17 @@ public class UserController {
 
     @GetMapping(value = "/admin/user/delete/{id}")
     public String getDeleteUser(Model model, @PathVariable long id) {
-        User user = new User();
-        user.setId(id);
-        model.addAttribute("newData", user);
+        // User user = new User();
+        // user.setId(id);
+        // model.addAttribute("newData", user);
+        model.addAttribute("id", id);
+        model.addAttribute("newData", new User());
         return "/admin/user/delete";
     }
 
-    @PostMapping(value = "/admin/user/delete/{id}")
+    @PostMapping(value = "/admin/user/delete")
     public String handleDeleteUser(Model model, @ModelAttribute("newData") User newData) {
+        System.out.println("getId" + newData.getId());
         this.userService.handleDeleteUser(newData.getId());
         return "redirect:/admin/user";
     }

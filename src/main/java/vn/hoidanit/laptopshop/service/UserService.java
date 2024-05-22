@@ -26,7 +26,16 @@ public class UserService {
         return user;
     }
 
-    public User handleSaveUser(User user) {
+    public User handleCreateUser(User user) {
         return this.userRepository.save(user);
+    }
+
+    public User handleUpdateUser(User user) {
+        User data = this.getUserById(user.getId());
+        data.setEmail(user.getEmail());
+        data.setPhone(user.getPhone());
+        data.setFullName(user.getFullName());
+        data.setAddress(user.getAddress());
+        return this.userRepository.save(data);
     }
 }

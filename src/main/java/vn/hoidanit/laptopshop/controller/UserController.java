@@ -43,7 +43,6 @@ public class UserController {
     public String getUserDetailPage(Model model, @PathVariable long id) {
         User user = this.userService.getUserById(id);
         model.addAttribute("id", id);
-        System.out.println(user);
         model.addAttribute("user", user);
         return "admin/user/show";
     }
@@ -55,8 +54,21 @@ public class UserController {
     }
     
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
-    public String handleCreateUser(Model model, @ModelAttribute("newUser") User newData) {
-        this.userService.handleSaveUser(newData);
+    public String handleCreateUser(Model model, @ModelAttribute("newData") User newData) {
+        this.userService.handleCreateUser(newData);
+        return "redirect:/admin/user";
+    }
+
+    @RequestMapping(value = "/admin/user/update/{id}", method = RequestMethod.GET)
+    public String getUpdateUser(Model model,  @PathVariable long id) {
+        User data = this.userService.getUserById(id);
+        model.addAttribute("data", data);
+        return "/admin/user/update";
+    }
+
+    @RequestMapping(value = "/admin/user/update/{id}", method = RequestMethod.POST)
+    public String handleUpdateUser(Model model, @ModelAttribute("newData") User newData) {
+        this.userService.handleUpdateUser(newData);
         return "redirect:/admin/user";
     }
 }

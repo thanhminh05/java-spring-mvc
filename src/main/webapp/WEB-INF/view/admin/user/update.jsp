@@ -19,15 +19,15 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <h3>Create a user</h3>
                             <hr />
-                            <form:form method="post" action="/admin/user/create" modelAttribute="newData">
+                            <form:form method="post" action="/admin/user/update/${id}" modelAttribute="data">
                                 <div class="mb-3">
-                                    <label class="form-label">Email:</label>
-                                    <form:input type="email" class="form-control" path="email" />
+                                    <label class="form-label">ID:</label>
+                                    <form:input type="text" class="form-control" disabled="true" path="id" />
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Password:</label>
-                                    <form:input type="password" class="form-control" path="password" />
+                                    <label class="form-label">Email:</label>
+                                    <form:input type="email" class="form-control" path="email" />
                                 </div>
 
                                 <div class="mb-3">

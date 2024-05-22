@@ -20,14 +20,14 @@
                             <h3>Create a user</h3>
                             <hr />
                             <form:form method="post" action="/admin/user/update/${id}" modelAttribute="data">
-                                <div class="mb-3">
+                                <div class="d-none mb-3">
                                     <label class="form-label">ID:</label>
                                     <form:input type="text" class="form-control" disabled="true" path="id" />
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Email:</label>
-                                    <form:input type="email" class="form-control" path="email" />
+                                    <form:input type="email" class="form-control" disabled="true" path="email" />
                                 </div>
 
                                 <div class="mb-3">
@@ -45,7 +45,7 @@
                                     <form:input type="text" class="form-control" path="address" />
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-warning">Update</button>
                             </form:form>
                         </div>
                     </div>

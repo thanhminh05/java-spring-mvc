@@ -71,4 +71,10 @@ public class UserController {
         this.userService.handleUpdateUser(newData);
         return "redirect:/admin/user";
     }
+
+    @RequestMapping(value = "/admin/user/delete/{id}")
+    public String handleDeleteUser(@PathVariable long id) {
+        this.userService.handleDeleteUser(id);
+        return "redirect:/admin/user";
+    }
 }

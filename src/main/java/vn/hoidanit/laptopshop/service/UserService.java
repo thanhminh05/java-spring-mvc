@@ -38,4 +38,8 @@ public class UserService {
         data.setAddress(user.getAddress());
         return this.userRepository.save(data);
     }
+
+    public void handleDeleteUser(Long id) {
+        this.userRepository.deleteById(id);
+    }
 }

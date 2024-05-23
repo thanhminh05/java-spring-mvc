@@ -28,13 +28,13 @@ public class User {
     private String avatar;
 
     // roleId
+    // User many -> to one -> role
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Role role; // using vs mappedBy
+    private Role role;
 
-    // one - order 
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    List<Order> orders;
 
     public long getId() {
         return id;
@@ -84,10 +84,18 @@ public class User {
         this.phone = phone;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public String toString() {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
-                + ", address=" + address + ", phone=" + phone + "]";
+                + ", address=" + address + ", phone=" + phone + ", avatar=" + avatar + "]";
     }
 
 }
